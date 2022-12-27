@@ -29,4 +29,6 @@ public class Gwiazda {
         this.masa=masa;
     }
 
+    //hashSet gwiazdozbiory
+    //arrayList gwiazdy
 }
