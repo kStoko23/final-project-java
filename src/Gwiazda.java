@@ -105,7 +105,7 @@ public class Gwiazda implements Serializable
     {
 
 
-           if(deklinacja.length() != 12)
+           if(deklinacja.length() != 13)
                 return false;
             if(deklinacja.charAt(0) != '+' && deklinacja.charAt(0) != '-')
                 return false;
@@ -135,6 +135,9 @@ public class Gwiazda implements Serializable
                 if(deklinacja.charAt(i) < '0' || deklinacja.charAt(i) > '9')
                     return false;
             }
+            if(deklinacja.charAt(12) != '\'')
+                return false;
+
             return true;
 
     }
@@ -181,11 +184,6 @@ public class Gwiazda implements Serializable
 
     public static boolean sprawdzGwiazdozbior(String gwiazdozbior)  //sprawdzanie czy wprowadzony gwiazdozbior jest poprawny
     {
-        for(int i = 0; i < gwiazdozbior.length(); i++)
-        {
-            if(gwiazdozbior.charAt(i) < 'A' || gwiazdozbior.charAt(i) > 'Z')
-                return false;
-        }
         return true;
     }
 
@@ -223,7 +221,7 @@ public class Gwiazda implements Serializable
         System.out.println("Podaj półkulę gwiazdy (Polnocna/Poludniowa): ");
         String polkula = skaner.next();
 
-        System.out.println("Podaj deklinację gwiazdy (0 do 90 stopni dla gwiazd znajdujących się na półkuli północnej oraz 0 do -90 stopni dla gwiazd na półkuli południowej, wartość podajemy jako XXstopniYYminutZZ.ZZsekund): ");
+        System.out.println("Podaj deklinację gwiazdy (0 do 90 stopni dla gwiazd znajdujących się na półkuli północnej oraz 0 do -90 stopni dla gwiazd na półkuli południowej, wartość podajemy jako +/-XX'YY'ZZ.ZZ'): ");
         String deklinacja = skaner.next();
 
         System.out.println("Podaj rektascensję gwiazdy (przyjmuje wartości od 00h do 24h, wartość podajemy jako XXhYYmZZs): ");
@@ -294,20 +292,20 @@ public class Gwiazda implements Serializable
 
         //uzytkownik podaje nazwe gwiazdy, ktora ma zostac usunieta
 
-        System.out.println("Podaj nazwę katalagową gwiazdy, którą chcesz usunąć: ");
+        System.out.println("Podaj nazwę gwiazdy, którą chcesz usunąć: ");
         nazwaGwiazdyDoUsuniecia = skaner.next();
 
         for (int i = 0; i < listaGwiazd.size(); i++)
         {
-            if (listaGwiazd.get(i).nazwaKatalogowa.equals(nazwaGwiazdyDoUsuniecia))  //program sprawdza czy gwiazda znajduje sie na liscie
+            if (listaGwiazd.get(i).nazwa.equals(nazwaGwiazdyDoUsuniecia))  //program sprawdza czy gwiazda znajduje sie na liscie
             {
                 gwiazdozbiorUsunietejGwiazdy = listaGwiazd.get(i).gwiazdozbior;  //program sprawdza jaki gwiazdozbior ma gwiazda, ktora ma zostac usunieta
-                indekxUsunietejGwiazdy = Integer.parseInt(listaGwiazd.get(i).gwiazdozbior);  //program sprawdza jaki indeks ma gwiazda, ktora ma zostac usunieta i zapisuje go w zminnej indekxUsunietejGwiazdy
+                indekxUsunietejGwiazdy = listaGwiazd.get(i).indexWGwiazdozbiorze;  //program sprawdza jaki indeks ma gwiazda, ktora ma zostac usunieta i zapisuje go w zminnej indekxUsunietejGwiazdy
                 listaGwiazd.remove(i); //program usuwa gwiazde z listy
                 System.out.println("Usunięto gwiazdę " + nazwaGwiazdyDoUsuniecia + " z gwiazdozbioru " + gwiazdozbiorUsunietejGwiazdy);
 
                 listaGwiazdozbiorow.computeIfPresent(gwiazdozbiorUsunietejGwiazdy, (k, v) -> indekxUsunietejGwiazdy);  //
-                for(Gwiazda gwiazda : listaGwiazd) //
+                for(Gwiazda gwiazda : listaGwiazd)
                 {
                     if ((gwiazda.gwiazdozbior.equals(gwiazdozbiorUsunietejGwiazdy) && gwiazda.indexWGwiazdozbiorze> indekxUsunietejGwiazdy))  //
                     {

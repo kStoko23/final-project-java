@@ -17,31 +17,27 @@ public class Main
 
             if (wybor == 1)
             {
-                if (Gwiazda.listaGwiazd.size() < 79)
-                {
-                    Gwiazda.dodajGwiazde(skaner);
-                }
-                else
-                {
-                    System.out.println("Lista jest pełna :(");
-                }
-
-            } else if (wybor == 2)
+                Gwiazda.dodajGwiazde(skaner);
+            }
+            else if (wybor == 2)
             {
                 Gwiazda.usunGwiazde(skaner);
 
-            } else if (wybor == 3)
+            }
+            else if (wybor == 3)
             {
                 System.out.println();
                 System.out.println("Lista gwiazd:");
                 System.out.println();
                 Gwiazda.wyswietlGwiazdy();
 
-            } else if (wybor == 4)
+            }
+            else if (wybor == 4)
             {
                 Gwiazda.wyszukiwanieObiektow(skaner);
 
-            } else if (wybor == 5)
+            }
+            else if (wybor == 5)
             {
                 try
                 {
