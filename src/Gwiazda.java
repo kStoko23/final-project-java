@@ -211,6 +211,7 @@ public class Gwiazda implements Serializable
     {
         System.out.println();
         System.out.println("DODAWANIE GWIAZDY");
+        System.out.println("Wpisując dane, które są ułamkami używaj przecinka, a nie kropki");  //gdy uzywa sie kropki, to program wyrzuca blad
         System.out.println();
 
         //uzytkownik wprowadza dane
