@@ -35,6 +35,7 @@ public class Gwiazda implements Serializable
 
     public static ArrayList<Gwiazda> listaGwiazd = new ArrayList<>();  //zawiera wszystkie obiekty klasy Gwiazda
     public static HashMap<String, Integer> listaGwiazdozbiorow = new HashMap<>();  //zawiera wszystkie gwiazdozbiory i indeksuje je
+                                                                                   //key - nazwa gwiazdozbioru, value - ilosc gwiazd w gwiazdozbiorze
 
 
 
@@ -182,12 +183,6 @@ public class Gwiazda implements Serializable
         return !(odlegloscWLatachSwietlnych < 0);
     }
 
-    public static boolean sprawdzGwiazdozbior(String gwiazdozbior)  //sprawdzanie czy wprowadzony gwiazdozbior jest poprawny
-    {
-        return true;
-    }
-
-
     public static boolean sprawdzPolkule(String polkula)
     {
         return polkula.equals("Polnocna") || polkula.equals("Poludniowa");
@@ -255,24 +250,20 @@ public class Gwiazda implements Serializable
                     {
                         if (sprawdzOdlegloscWLatachSwietlnych(odlegloscWLatachSwietlnych))
                         {
-                            if (sprawdzGwiazdozbior(gwiazdozbior))
+                            if (sprawdzPolkule(polkula))
                             {
-                                if (sprawdzPolkule(polkula))
+                                if (sprawdzTemperature(temperatura))
                                 {
-                                    if (sprawdzTemperature(temperatura))
+                                    if (sprawdzMase(masa))
                                     {
-                                        if (sprawdzMase(masa))
-                                        {
-                                            listaGwiazd.add(new Gwiazda(nazwa, deklinacja, rektascensja, obserwowanaWielkoscGwiazdowa, odlegloscWLatachSwietlnych, gwiazdozbior, polkula, temperatura, masa));
-                                            System.out.println("Dodano gwiazdę");  //jesli dane sa poprawne, gwiazda zostaje dodana do listy
-                                        } else
-                                            System.out.println("Niepoprawna masa");
+                                        listaGwiazd.add(new Gwiazda(nazwa, deklinacja, rektascensja, obserwowanaWielkoscGwiazdowa, odlegloscWLatachSwietlnych, gwiazdozbior, polkula, temperatura, masa));
+                                        System.out.println("Dodano gwiazdę");  //jesli dane sa poprawne, gwiazda zostaje dodana do listy
                                     } else
-                                        System.out.println("Niepoprawna temperatura");
+                                        System.out.println("Niepoprawna masa");
                                 } else
-                                    System.out.println("Niepoprawna półkula");
+                                        System.out.println("Niepoprawna temperatura");
                             } else
-                                System.out.println("Niepoprawny gwiazdozbior");
+                                System.out.println("Niepoprawna półkula");
                         } else
                             System.out.println("Niepoprawna odległość w latach świetlnych");
                     } else
@@ -305,12 +296,12 @@ public class Gwiazda implements Serializable
                 listaGwiazd.remove(i); //program usuwa gwiazde z listy
                 System.out.println("Usunięto gwiazdę " + nazwaGwiazdyDoUsuniecia + " z gwiazdozbioru " + gwiazdozbiorUsunietejGwiazdy);
 
-                listaGwiazdozbiorow.computeIfPresent(gwiazdozbiorUsunietejGwiazdy, (k, v) -> indekxUsunietejGwiazdy);  //
+                listaGwiazdozbiorow.computeIfPresent(gwiazdozbiorUsunietejGwiazdy, (k, v) -> indekxUsunietejGwiazdy);  //jesli gwiazdozbior usunietej gwiazdy istnieje w hashmapie, zmienia value na indeks usunietej gwiazdy
                 for(Gwiazda gwiazda : listaGwiazd)
                 {
-                    if ((gwiazda.gwiazdozbior.equals(gwiazdozbiorUsunietejGwiazdy) && gwiazda.indexWGwiazdozbiorze> indekxUsunietejGwiazdy))  //
+                    if ((gwiazda.gwiazdozbior.equals(gwiazdozbiorUsunietejGwiazdy) && gwiazda.indexWGwiazdozbiorze> indekxUsunietejGwiazdy))  //dla każdej gwiazdy w liscie gwiazd o indexie wiekszym niz index usunietej gwiazdy na nowo generuje nazwe katalogowa
                     {
-                        gwiazda.UtworzNazweKatalogowa(gwiazda.gwiazdozbior); //
+                        gwiazda.UtworzNazweKatalogowa(gwiazda.gwiazdozbior);
                     }
                 }
                 break;
