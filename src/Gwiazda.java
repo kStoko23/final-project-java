@@ -50,7 +50,7 @@ public class Gwiazda implements Serializable
         this.obserwowanaWielkoscGwiazdowa = obserwowanaWielkoscGwiazdowa;
         this.odlegloscWLatachSwietlnych = odlegloscWLatachSwietlnych;
         this.gwiazdozbior = gwiazdozbior;
-        this.polkula = polkula;
+        this.polkula = polkula.toLowerCase();
         this.temperatura = temperatura;
         this.masa = masa;
         this.UtworzNazweKatalogowa(gwiazdozbior);  //przypisuje danej gwiazdzie jej nazwe katalogowa
@@ -185,7 +185,7 @@ public class Gwiazda implements Serializable
 
     public static boolean sprawdzPolkule(String polkula)
     {
-        return polkula.equals("Polnocna") || polkula.equals("Poludniowa");
+        return polkula.equals("polnocna") || polkula.equals("poludniowa");
     }
 
     public static boolean sprawdzTemperature(double temperatura)
@@ -215,7 +215,7 @@ public class Gwiazda implements Serializable
         String nazwa = skaner.next();
 
         System.out.println("Podaj półkulę gwiazdy (Polnocna/Poludniowa): ");
-        String polkula = skaner.next();
+        String polkula = skaner.next().toLowerCase();
 
         System.out.println("Podaj deklinację gwiazdy (0 do 90 stopni dla gwiazd znajdujących się na półkuli północnej oraz 0 do -90 stopni dla gwiazd na półkuli południowej, wartość podajemy jako +/-XX'YY'ZZ.ZZ'): ");
         String deklinacja = skaner.next();
@@ -464,7 +464,7 @@ public class Gwiazda implements Serializable
     public static void wyszukajGwiazdyZPolkuli(Scanner skaner)
     {
         System.out.println("Podaj półkulę (Polnocna/Poludniowa): ");
-        String polkula = skaner.next();
+        String polkula = skaner.next().toLowerCase();
         int licznik = 0;
 
         for (Gwiazda gwiazda : listaGwiazd)
