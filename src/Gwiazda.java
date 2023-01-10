@@ -85,7 +85,7 @@ public class Gwiazda implements Serializable
 
     //endregion
 
-    //region Sprawdzanie zaleźności - metody sprawdzajace czy uzytkowanik wprowadzil wlasciwe dane
+    //region Sprawdzanie zależności - metody sprawdzające czy użytkownik wprowadził właściwe dane
     public static boolean sprawdzNazwe(String nazwa)
     {
         if(nazwa.length() != 7)
