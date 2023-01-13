@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Gwiazda implements Serializable
 {
-    //region Pola
+    //region Pola - Marcin i Kuba 
     private final String nazwa;  //zawiera 3 wielkie litery i 4 cyfry
     private  String nazwaKatalogowa;  //jest ona połączeniem litery z alfabetu greckiego i nazwy gwiazdozbioru
     private  final String deklinacja;  //if polkula == "Północna" then 0 <= deklinacja <= 90 || if polkula == "Południowa" then -90 <= deklinacja <= 0
@@ -41,7 +41,7 @@ public class Gwiazda implements Serializable
 
     //endregion
 
-    //region Konstruktor
+    //region Konstruktor - Marcin i Kuba
     public Gwiazda(String nazwa, String deklinacja, String rektascensja, double obserwowanaWielkoscGwiazdowa, double odlegloscWLatachSwietlnych, String gwiazdozbior, String polkula, double temperatura, double masa)
     {
         this.nazwa = nazwa;
@@ -58,7 +58,7 @@ public class Gwiazda implements Serializable
     }
     //endregion
 
-    //region Metody pomocnicze
+    //region Metody pomocnicze - Marcin
 
     private void  UtworzNazweKatalogowa(String gwiazdozbior)  //metoda tworzaca nazwe katalogowa
     {
@@ -85,7 +85,7 @@ public class Gwiazda implements Serializable
 
     //endregion
 
-    //region Sprawdzanie zależności - metody sprawdzające czy użytkownik wprowadził właściwe dane
+    //region Sprawdzanie zależności - metody sprawdzające czy użytkownik wprowadził właściwe dane - Kuba
     public static boolean sprawdzNazwe(String nazwa)
     {
         if(nazwa.length() != 7)
@@ -200,7 +200,7 @@ public class Gwiazda implements Serializable
 
     //endregion
 
-    //region Dodawanie, usuwanie i wyświetlanie gwiazd
+    //region Dodawanie, usuwanie i wyświetlanie gwiazd - Marcin
 
     public static void dodajGwiazde(Scanner skaner)
     {
@@ -323,7 +323,7 @@ public class Gwiazda implements Serializable
     }
     //endregion
 
-    //region Szukanie obiektów
+    //region Szukanie obiektów - Kuba
     public static void wyszukiwanieObiektow(Scanner skaner)
     {
         do
@@ -370,9 +370,9 @@ public class Gwiazda implements Serializable
     }
     //endregion
 
-    //region Szukanie obiektów - metody pomocnicze
+    //region Szukanie obiektów - metody pomocnicze - Marcin i Kuba
 
-    public static void wyszukajGwiazdyWGwiazdozbiorze(Scanner skaner)
+    public static void wyszukajGwiazdyWGwiazdozbiorze(Scanner skaner) //Marcin
     {
         System.out.println("Podaj nazwę gwiazdozbioru, w którym chcesz wyszukać gwiazdy: ");
         String nazwaGwiazdozbioru = skaner.next();
@@ -393,7 +393,7 @@ public class Gwiazda implements Serializable
         }
     }
 
-    public static void wyszukajGwiazdyWZadanymPromieniu(Scanner skaner)
+    public static void wyszukajGwiazdyWZadanymPromieniu(Scanner skaner) //Kuba
     {
         System.out.println("Podaj promień w parsekach, w którym chcesz wyszukać gwiazdy: ");
         double promienWParsekach = skaner.nextDouble();
@@ -415,7 +415,7 @@ public class Gwiazda implements Serializable
         }
     }
 
-    public static void wyszukajGwiazdyWTemperaturze(Scanner skaner)
+    public static void wyszukajGwiazdyWTemperaturze(Scanner skaner) //Marcin
     {
         System.out.println("Podaj temperaturę minimalną: ");
         double temperaturaMinimalna = skaner.nextDouble();
@@ -438,7 +438,7 @@ public class Gwiazda implements Serializable
         }
     }
 
-    public static void wyszukajGwiazdyWObserwowanejWielkosciGwiazdowej(Scanner skaner)
+    public static void wyszukajGwiazdyWObserwowanejWielkosciGwiazdowej(Scanner skaner) //Kuba
     {
         System.out.println("Podaj wielkość gwiazdową minimalną: ");
         double wielkoscGwiazdowaMinimalna = skaner.nextDouble();
@@ -461,7 +461,7 @@ public class Gwiazda implements Serializable
         }
     }
 
-    public static void wyszukajGwiazdyZPolkuli(Scanner skaner)
+    public static void wyszukajGwiazdyZPolkuli(Scanner skaner) //Marcin
     {
         System.out.println("Podaj półkulę (Polnocna/Poludniowa): ");
         String polkula = skaner.next().toLowerCase();
@@ -482,7 +482,7 @@ public class Gwiazda implements Serializable
         }
     }
 
-    public static void wyszukajSupernowe()
+    public static void wyszukajSupernowe() //Kuba
     {
         int licznik = 0;
 
