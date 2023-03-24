@@ -21,6 +21,8 @@ public class Gwiazda implements Serializable
     private  int indexWGwiazdozbiorze;  //zawiera index gwiazdozbioru w HashMapie z gwiazdozbiorami - pozwala to na odpowiednie przypisanie litery z alfabetu greckiego
 
 
+
+
     private static final char[] alfabetGrecki= new char[]  //tablica pomocznica - zawiera symbole potrzebne do utworzenia nazwy katalogowej
             {
                     'α','β','γ','δ','ε','ζ','η','θ','ι','κ',

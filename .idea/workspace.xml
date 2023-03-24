@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c582442-4126-4eb5-81af-43328a07e288" name="Changes" comment="" />
+    <list default="true" id="0c582442-4126-4eb5-81af-43328a07e288" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Gwiazda.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Gwiazda.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,6 +57,7 @@
       <workItem from="1672311185350" duration="397000" />
       <workItem from="1672321377564" duration="1694000" />
       <workItem from="1672930799420" duration="98000" />
+      <workItem from="1673638560344" duration="43000" />
     </task>
     <servers />
   </component>
